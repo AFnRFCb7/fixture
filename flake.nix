@@ -17,7 +17,7 @@
                                                     writeShellApplication
                                                         {
                                                             name = "execute-fixture" ;
-                                                            runtimeInputs = [ age coreutils gnupg libuuid ( failure "0118ba19" ) ] ;
+                                                            runtimeInputs = [ age coreutils gnupg libuuid ( failure.implementation "0118ba19" ) ] ;
                                                             text =
                                                                 ''
                                                                     OUT="$1"
