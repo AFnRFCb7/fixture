@@ -4,7 +4,7 @@
         { self } :
             {
                 lib =
-                    { age , coreutils , failure , gnupg , mkDerivation , uuidlib , writeShellApplication } :
+                    { age , coreutils , failure , gnupg , libuuid , mkDerivation , writeShellApplication } :
                         {
                             implementation =
                                 mkDerivation
@@ -17,7 +17,7 @@
                                                     writeShellApplication
                                                         {
                                                             name = "execute-fixture" ;
-                                                            runtimeInputs = [ age coreutils gnupg uuidlib ( failure "0118ba19" ) ] ;
+                                                            runtimeInputs = [ age coreutils gnupg libuuid ( failure "0118ba19" ) ] ;
                                                             text =
                                                                 ''
                                                                     OUT="$1"
