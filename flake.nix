@@ -25,10 +25,10 @@
                                                                     age-keygen --output "$OUT/age/identity/private"
                                                                     age-keygen -y "$OUT/age/identity/private" > "$OUT/age/identity/public"
                                                                     mkdir --parents "$OUT/age/decrypted"
-                                                                    uuidgen | sha512sum | cut --characters 1-128 > "$OUT/age/decrypted/known-hosts"
+                                                                    uuidgen | sha512sum | cut --characters 1-128 > "$OUT/age/decrypted/known-hosts.asc"
                                                                     mkdir --parents "$OUT/age/encrypted"
                                                                     PUBLIC_KEY="$( age-keygen -y "$OUT/age/identity/private" )" || failure public key
-                                                                    age --recipient "$PUBLIC_KEY" --output "$OUT/age/encrypted/known-hosts"
+                                                                    age --recipient "$PUBLIC_KEY" --output "$OUT/age/encrypted/known-hosts.asc" "$OUT/age/decrypted/known-hosts.asc"
                                                                     GNUPGHOME="$OUT/gnupg/gnupghome"
                                                                     export GNUPGHOME
                                                                     mkdir --parents "$GNUPGHOME"
